@@ -1,0 +1,17 @@
+:root {
+    --light-blue: #BFD7EA;
+    --dark-purple: #210124;
+    --light-green: #204B57;
+    --orange: #FBA32D;
+}
+
+.young-serif-regular {
+    font-family: "Young Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
