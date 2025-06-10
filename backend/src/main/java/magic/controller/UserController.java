@@ -24,9 +24,9 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> loginUser(@RequestBody User user) {
+    public ResponseEntity<?> loginUser(@RequestBody User user) {
         return userService.authenticate(user.getUsername(), user.getPassword())
-                .map(u -> ResponseEntity.ok("Login successful"))
+                .map(token -> ResponseEntity.ok().body("Bearer " + token))
                 .orElseGet(() -> ResponseEntity.status(401).body("Invalid username or password"));
     }
 }

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/api/products")
 public class ProductController {
 
@@ -54,10 +53,5 @@ public class ProductController {
     @DeleteMapping("/{reference}")
     public void deleteProduct(@PathVariable String reference) {
         productService.deleteProduct(reference);
-    }
-
-    @GetMapping("/jour")
-    public ResponseEntity<Product> rechercherProduitDuJour() {
-        return ResponseEntity.ok(productService.getProductDuJour().get());
     }
 }
