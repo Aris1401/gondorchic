@@ -1,4 +1,12 @@
 .navbar {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 80%;
+
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -8,23 +16,98 @@
     padding-top: .5rem;
     padding-bottom: .5rem;
 
-    background-color: var(--orange);
+    background: linear-gradient(to right,
+            transparent 0%,
+            color-mix(in srgb, var(--orange) 60%, transparent) 40%,
+            color-mix(in srgb, var(--orange) 60%, transparent) 60%,
+            transparent 100%);
+
+
 
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.3);
 
     z-index: 10;
+
+    backdrop-filter: blur(10px);
+}
+
+.navbar::before,
+.navbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--light-blue) 50%,
+    transparent 100%
+  );
+}
+
+.navbar::before {
+  top: 0;
+}
+
+.navbar::after {
+  bottom: 0;
 }
 
 .navbar .navtitle {
-    font-weight: bold;
+    padding-left: 3rem;
+
     font-size: 1.3rem;
 
-    color: var(--dark-purple);
+    color: var(--light-blue);
+}
+
+.navbar .navtitle h3 {
+    font-weight: lighter;
 }
 
 .navbar .navright {
     margin-left: auto;
     margin-right: 0;
+}
+
+/* NAVUSER */
+.navbar .navUser {
+    /* background-color: color-mix(in srgb, var(--light-blue) 30%, transparent); */
+
+    padding: 0.5rem 1rem 0.5rem 1rem;
+
+    position: relative;
+
+    color: var(--light-blue);
+}
+
+.navbar .navUser::before,
+.navbar .navUser::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--light-green) 50%,
+    transparent 100%
+  );
+}
+
+.navbar .navUser::before {
+  top: 0;
+}
+
+.navbar .navUser::after {
+  bottom: 0;
+}
+
+.navbar .navUser p {
+    padding: 0;
+    margin: 0;
 }
 
 /* ---------------------- NAVLOGIN ----------------------  */
@@ -43,6 +126,8 @@
     border: 2px solid var(--dark-purple);
 
     padding: .5rem 1rem;
+
+    font-family: "Young Serif";
 }
 
 .navbar .navlogin .form-input label {
@@ -56,7 +141,7 @@
     padding: .8rem 2rem .8rem 2rem;
 
     font-family: 'Young Serif';
-    
+
     border: 2px solid var(--light-blue);
 
     color: var(--light-blue);
