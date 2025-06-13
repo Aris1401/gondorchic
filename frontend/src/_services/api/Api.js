@@ -3,6 +3,8 @@ import { routes } from '../../routes'
 
 const localUrl = 'http://127.0.0.1:8080/api';
 
+const LOGIN_PAGE = "/";
+
 function getLocalAccessToken() {
 	const accessToken = window.localStorage.getItem("accessToken");
 

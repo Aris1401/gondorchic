@@ -16,12 +16,12 @@ export const PageAccueil = () => {
             <div className="content-produit-jour young-serif-regular">
                 <div className="details-produit-jour">
                     <div className="informations">
-                        <div className="titre">
-                            <h3>Produit du jour</h3>
-                        </div>
-
                         <div className="contenu">
                             <h1 className="sous-titre">{ produitDuJour && produitDuJour.libelle }</h1>
+                        </div>
+                        
+                        <div className="titre">
+                            <h3>Produit du jour</h3>
                         </div>
                     </div>
 

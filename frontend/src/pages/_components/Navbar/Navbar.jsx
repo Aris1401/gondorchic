@@ -1,4 +1,5 @@
 import "./Navbar.css"
+import { FaRegUser } from "react-icons/fa6"
 
 export const Navbar = () => {
     let isAuth = false;
@@ -12,6 +13,7 @@ export const Navbar = () => {
             <div className="navright">
                 { isAuth ? 
                     <div className="navUser">
+                        <FaRegUser />
                         <p>Bonjour, Marie DUPOND</p>
                     </div> 
                     : 
@@ -23,7 +25,7 @@ export const Navbar = () => {
 
                         <div className="form-input">
                             <label htmlFor="mot-de-passe">Mot de passe</label>
-                            <input type="text" name="mot-de-passe" id="mot-de-passe" />
+                            <input type="password" name="mot-de-passe" id="mot-de-passe" />
                         </div>
 
                         <input type="submit" value="S'identifier" />

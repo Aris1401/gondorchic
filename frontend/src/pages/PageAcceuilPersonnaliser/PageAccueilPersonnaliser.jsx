@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { ObtenirProduitDuJour } from "../../_services/ProduitDuJourService"
+import { FaShoppingCart } from "react-icons/fa";
 
 export const PageAccueilPersonnaliser = () => {
     const [produitDuJour, setProduitDuJour] = useState(null);
@@ -13,12 +14,12 @@ export const PageAccueilPersonnaliser = () => {
         <div className="content-produit-jour young-serif-regular">
             <div className="details-produit-jour">
                 <div className="informations">
-                    <div className="titre">
-                        <h3>Produit du jour</h3>
-                    </div>
-
                     <div className="contenu">
                         <h1 className="sous-titre">{produitDuJour && produitDuJour.libelle}</h1>
+                    </div>
+
+                    <div className="titre">
+                        <h3>Produit du jour</h3>
                     </div>
                 </div>
 
@@ -34,7 +35,10 @@ export const PageAccueilPersonnaliser = () => {
                                 <label htmlFor="quantite">Quantite</label>
                                 <input type="number" name="quantite" id="quantite" min={0} />
                             </div>
-                            <button>Ajouter au panier</button>
+                            <button>
+                                <FaShoppingCart />
+                                Ajouter au panier
+                            </button>
                         </div>
                     </div>
                 </div>
