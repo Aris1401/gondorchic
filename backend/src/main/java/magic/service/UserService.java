@@ -1,33 +1,47 @@
 package magic.service;
 
-import magic.model.User;
-import magic.repository.UserRepository;
+import magic.model.Client;
+import magic.repository.ClientRepository;
 import magic.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.lang.classfile.ClassFile.Option;
 import java.util.Optional;
 @Service
 public class UserService {
     @Autowired
-    private UserRepository userRepository;
+    private ClientRepository userRepository;
     @Autowired
     private JwtUtil jwtUtil;
     @Autowired
     private PasswordEncoder passwordEncoder;
-    public Optional<User> registerUser(User user) {
-        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
+    
+    public Optional<Client> registerUser(Client user) {
+        if (userRepository.findByPseudo(user.getPseudo()).isPresent()) {
             return Optional.empty();
         }
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setMotDePasse(passwordEncoder.encode(user.getMotDePasse()));
         return Optional.of(userRepository.save(user));
     }
-    public Optional<String> authenticate(String username, String password) {
-        Optional<User> userOpt = userRepository.findByUsername(username);
-        if (userOpt.isPresent() && passwordEncoder.matches(password, userOpt.get().getPassword())) {
-            String token = jwtUtil.generateToken(username);
+
+    public Optional<String> traiterIdentification(String pseudo, String motDePasse) {
+        Optional<Client> userOpt = userRepository.findByPseudo(pseudo);
+        
+        if (userOpt.isPresent() && passwordEncoder.matches(motDePasse, userOpt.get().getMotDePasse())) {
+            String token = jwtUtil.generateToken(pseudo);
             return Optional.of(token);
         }
+
         return Optional.empty();
+    }
+
+    public Optional<Client> rechercherClientParPseudo(String pseudo) {
+        Optional<Client> userOpt = userRepository.findByPseudo(pseudo);
+        return userOpt;
     }
 }

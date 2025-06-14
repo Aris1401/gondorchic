@@ -16,11 +16,11 @@
   padding-top: 0rem;
   padding-bottom: 0rem;
 
-  /* background: linear-gradient(to right,
+  background: linear-gradient(to right,
       transparent 0%,
       color-mix(in srgb, var(--orange-2) 80%, transparent) 20%,
       color-mix(in srgb, var(--orange-2) 80%, transparent) 80%,
-      transparent 100%); */
+      transparent 100%);
 
   backdrop-filter: blur(2rem);
 
@@ -130,6 +130,8 @@
   display: flex;
   align-items: flex-end;
   gap: 1rem;
+
+  margin-right: 5rem;
 }
 
 .navbar .navlogin .form-input {

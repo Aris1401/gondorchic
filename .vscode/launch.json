@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MagicVenteStockBackApplication<magic.vente.stock>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "magic.MagicVenteStockBackApplication",
+            "projectName": "magic.vente.stock",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

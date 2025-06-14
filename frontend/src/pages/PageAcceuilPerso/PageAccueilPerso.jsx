@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { ObtenirProduitDuJour } from "../../_services/ProduitDuJourService"
 import { FaShoppingCart } from "react-icons/fa";
 
-export const PageAccueilPersonnaliser = () => {
+export const PageAccueilPerso = () => {
     const [produitDuJour, setProduitDuJour] = useState(null);
     useEffect(() => {
         ObtenirProduitDuJour().then((produit) => {

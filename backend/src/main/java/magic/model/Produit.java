@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Product {
+public class Produit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +18,9 @@ public class Product {
     private boolean estDuJour;
     private int quantiteEnStock;
 
-    public Product() {}
+    public Produit() {}
 
-    public Product(String reference, String libelle, float prix, boolean estDuJour, int quantiteEnStock) {
+    public Produit(String reference, String libelle, float prix, boolean estDuJour, int quantiteEnStock) {
         this.reference = reference;
         this.libelle = libelle;
         this.prix = prix;

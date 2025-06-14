@@ -1,31 +1,31 @@
 package magic.service;
 
-import magic.model.Product;
-import magic.repository.ProductRepository;
+import magic.model.Produit;
+import magic.repository.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 import java.util.List;
 @Service
-public class ProductServiceImpl implements IProductService {
+public class ProduitsManager implements ProduitsServiceAPI {
     @Autowired
-    private ProductRepository productRepository;
+    private ProduitRepository productRepository;
     @Override
-    public List<Product> getAllProducts() {
+    public List<Produit> getAllProducts() {
         return productRepository.findAll();
     }
     @Override
-    public Product getProductByReference(String reference) {
+    public Produit getProductByReference(String reference) {
         return productRepository.findByReference(reference)
                 .orElseThrow(() -> new RuntimeException("Produit non trouvé avec référence : " + reference));
     }
 
     @Override
     @Transactional
-    public Product saveProduct(Product product) {
+    public Produit saveProduct(Produit product) {
         if (product.isEstDuJour()) {
-            Optional<Product> ancienProduitDuJour = productRepository.findByEstDuJourTrue();
+            Optional<Produit> ancienProduitDuJour = productRepository.findByEstDuJourTrue();
             ancienProduitDuJour.ifPresent(p -> {
                 p.setEstDuJour(false);
                 productRepository.save(p);
@@ -40,7 +40,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public Optional<Product> getProductDuJour() {
+    public Optional<Produit> rechercherProduitDuJour() {
         return productRepository.findByEstDuJourTrue();
     }
 }
