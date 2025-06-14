@@ -1,81 +1,218 @@
 .navbar {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
 
-    padding-left: 3rem;
-    padding-right: 3rem;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+  transform: translateX(-50%);
 
-    background-color: var(--orange);
+  width: 95%;
 
-    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 
-    z-index: 10;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+
+  background: linear-gradient(to right,
+      transparent 0%,
+      color-mix(in srgb, var(--orange-2) 80%, transparent) 20%,
+      color-mix(in srgb, var(--orange-2) 80%, transparent) 80%,
+      transparent 100%);
+
+  backdrop-filter: blur(2rem);
+
+  mask-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0) 100%);
+
+  z-index: 10;
+}
+
+.navbar::before,
+.navbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right,
+      transparent 0%,
+      transparent 20%,
+      var(--light-blue) 50%,
+      transparent 80%,
+      transparent 100%);
+}
+
+.navbar::before {
+  top: 0;
+}
+
+.navbar::after {
+  bottom: 0;
 }
 
 .navbar .navtitle {
-    font-weight: bold;
-    font-size: 1.3rem;
+  padding-left: 10rem;
 
-    color: var(--dark-purple);
+  font-size: 1.3rem;
+
+  color: var(--dark-purple);
+}
+
+.navbar .navtitle h3 {
+  font-weight: lighter;
+
+  text-shadow: -1px -1px 0 var(--light-blue), 1px -1px 0 var(--light-blue), -1px 1px 0 var(--light-blue), 1px 1px 0 var(--light-blue);
 }
 
 .navbar .navright {
-    margin-left: auto;
-    margin-right: 0;
+  margin-left: auto;
+  margin-right: 10rem;
+}
+
+/* NAVUSER */
+.navbar .navUser {
+  background-color: color-mix(in srgb, var(--light-blue) 10%, transparent);
+  border: none;
+  border-left: 4px solid var(--dark-purple);
+  border-right: 4px solid var(--dark-purple);
+
+  padding: 0.5rem 1rem 0.5rem 1rem;
+
+  position: relative;
+
+  color: var(--light-blue);
+
+  margin-right: 6rem;
+
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+/* .navbar .navUser::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right,
+      transparent 0%,
+      var(--light-green) 50%,
+      transparent 100%);
+}
+
+.navbar .navUser::before {
+  top: 0;
+}
+
+.navbar .navUser::after {
+  bottom: 0;
+} */
+
+.navbar .navUser p {
+  padding: 0;
+  margin: 0;
 }
 
 /* ---------------------- NAVLOGIN ----------------------  */
 .navbar .navlogin {
-    display: flex;
-    align-items: flex-end;
-    gap: 1rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+
+  margin-right: 5rem;
 }
 
 .navbar .navlogin .form-input {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-.navbar .navlogin .form-input input[type="text"] {
-    border: 2px solid var(--dark-purple);
+.navbar .navlogin .form-input input[type="text"], input[type="password"] {
+  /* border: 2px solid var(--dark-purple); */
+  border: none;
+  border-left: 4px solid var(--dark-purple);
+  border-right: 4px solid var(--dark-purple);
 
-    padding: .5rem 1rem;
+  padding: .3rem 1rem;
+
+  font-family: "Young Serif";
 }
 
 .navbar .navlogin .form-input label {
-    font-size: .8rem;
-    font-weight: lighter;
+  font-size: .8rem;
+  font-weight: lighter;
 
-    color: var(--dark-purple);
+  color: var(--light-blue);
 }
 
 .navbar .navlogin input[type="submit"] {
-    padding: .8rem 2rem .8rem 2rem;
+  padding: .5rem 2rem .5rem 2rem;
 
-    font-family: 'Young Serif';
-    
-    border: 2px solid var(--light-blue);
+  font-family: 'Young Serif';
 
-    color: var(--light-blue);
+  /* border: 2px solid var(--light-blue); */
+  border: none;
 
-    background-color: var(--light-green);
+  color: var(--light-blue);
 
-    transition: 150ms all;
+  background-color: var(--light-green);
+
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+
+  transition: 150ms all;
+
+  cursor: pointer;
+
+  position: relative;
 }
 
 .navbar .navlogin input[type="submit"]:hover {
-    background-color: var(--light-blue);
+  background-color: var(--light-blue);
 
-    color: var(--dark-purple);
+  color: var(--dark-purple);
 }
 
 .navbar .navlogin input[type="submit"]:active {
-    border: 2px solid var(--light-blue);
+  /* border: 2px solid var(--light-blue); */
 
-    background-color: var(--dark-purple);
+  background-color: var(--dark-purple);
 
-    color: var(--light-blue);
+  color: var(--light-blue);
+
+  transform: scaleY(.9);
+}
+
+.navbar .navlogin input[type="submit"]::before,
+.navbar .navlogin input[type="submit"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--light-blue) 50%,
+    transparent 100%
+  );
+}
+
+.navbar .navlogin input[type="submit"]::before {
+  top: 0;
+}
+
+.navbar .navlogin input[type="submit"]::after {
+  bottom: 0;
 }

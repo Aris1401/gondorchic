@@ -1,15 +1,16 @@
 .content-produit-jour {
-    background: url('../../../public/images/pixie-dust.png');
-    background-repeat: no-repeat;
+    background: url('../../../public/images/poudre.png');
+    background-repeat: unset;
     background-size: cover;
-    background-position: 0px -200px;
+    background-position: 00px 0px;
 
     width: 100%;
-    height: calc(100vh - 74.5px);
+    height: calc(100vh);
 
     position: relative;
 
     display: flex;
+    align-items: center;
 }
 
 .content-produit-jour::before {
@@ -19,7 +20,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    background: linear-gradient(to bottom, rgba(25, 54, 107, 0.267) 10%, rgba(11, 24, 3, 0.5));
     z-index: 1;
 }
 
@@ -36,8 +37,8 @@
     margin-bottom: 0;
 
     display: flex;
-    justify-content: space-between;
     align-items: flex-end;
+    justify-content: space-between;
 
     padding-bottom: 3rem;
 }
@@ -46,6 +47,8 @@
 
 .details-produit-jour .informations {
     width: 50%;
+
+    margin-bottom: 3rem;
 
     color: var(--light-blue);
 }
@@ -57,21 +60,35 @@
 
     color: var(--dark-purple);
 
-    padding: 1rem 2rem 1rem 3rem;
+    margin-left: 6rem;
+
+    padding: .5rem 2rem .5rem 2rem;
 
     user-select: none;
+
+    font-size: .9rem;
+
+    position: relative;
 }
 
 .details-produit-jour .informations .titre h3 {
     margin: 0;
+
+    font-weight: unset;
 }
 
 .details-produit-jour .informations .contenu {
-    padding-left: 3rem;
+    padding-left: 6rem;
 }
 
 .details-produit-jour .informations .contenu h1 {
-    margin-bottom: 0;
+    margin-bottom: 1rem;
+
+    font-size: 5em;
+
+    line-height: 5.5rem;
+
+    font-weight: 100;
 }
 
 .details-produit-jour .informations .contenu p {
@@ -86,28 +103,104 @@
     width: 50%;
 
     display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+
+    padding-right: 5rem;
+}
+
+.details-produit-jour .quantite .quantite-informations {
+    display: flex;
     flex-direction: column;
     align-items: flex-end;
 
-    gap: 1rem;
-
-    padding-right: 3rem;
+    gap: 2rem;
 
     text-align: right;
 
     color: var(--light-blue);
+
+    background: 
+        linear-gradient(to bottom, 
+            color-mix(in srgb, var(--light-green) 30%, transparent) 0%, 
+            transparent 50%),
+        linear-gradient(to top, 
+            color-mix(in srgb, var(--light-green) 30%, transparent) 0%, 
+            transparent 50%);
+
+    width: fit-content;
+
+    padding: 1.5rem;
+
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    position: relative;
+
+    backdrop-filter: blur(3px);
+}
+
+.details-produit-jour .quantite .quantite-informations::before,
+.details-produit-jour .quantite .quantite-informations::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--light-blue) 50%,
+    transparent 100%
+  );
+}
+
+.details-produit-jour .quantite .quantite-informations::before {
+  top: 0;
+}
+
+.details-produit-jour .quantite .quantite-informations::after {
+  bottom: 0;
 }
 
 .details-produit-jour .quantite .prix p {
     margin: 0;
 
-    font-size: 1.2rem;
+    font-size: .9rem;
 }
 
 .details-produit-jour .quantite .prix h3 {
     margin: 0;
 
-    font-size: 2.5rem;
+    font-size: 3rem;
+
+    font-weight: 100;
+}
+
+.content-produit-jour .quantite .action {
+    display: flex;
+    gap: 1rem;
+}
+
+.content-produit-jour .action .quantite-input {
+    display: flex;
+    flex-direction: column;
+
+    text-align: right;
+}
+
+.content-produit-jour .action .quantite-input input[type="number"] {
+    width: 64px;
+    height: 24px;
+
+    border: none;
+    border-left: 3px solid var(--dark-purple);
+    border-right: 3px solid var(--dark-purple);
+
+    font-family: "Young Serif";
+    font-size: 1.1rem;
+
+    text-indent: 5px;
 }
 
 .content-produit-jour .quantite .action button {
@@ -115,25 +208,54 @@
 
     font-family: 'Young Serif';
 
-    padding: 1rem 3rem 1rem 3rem;
+    padding: 0rem 3rem 0rem 3rem;
 
-    border: 2px solid var(--light-blue);
-
-    background-color: var(--light-green);
+    background-color: var(--dark-purple);
 
     color: var(--light-blue);
 
     transition: 150ms all;
+
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.content-produit-jour .quantite .action button::before,
+.content-produit-jour .quantite .action button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--light-blue) 50%,
+    transparent 100%
+  );
+}
+
+.content-produit-jour .quantite .action button::before {
+  top: 0;
+}
+
+.content-produit-jour .quantite .action button::after {
+  bottom: 0;
 }
 
 .content-produit-jour .quantite .action button:hover {
     background-color: var(--light-blue);
 
     color: var(--dark-purple);
+
+    cursor: pointer;
 }
 
 .content-produit-jour .quantite .action button:active {
     background-color: var(--dark-purple);
 
     color: var(--light-blue);
+
+    transform: scaleY(.9);
 }

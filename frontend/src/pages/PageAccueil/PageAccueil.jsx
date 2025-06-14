@@ -13,28 +13,24 @@ export const PageAccueil = () => {
 
     return (
         <>
-            <Navbar />
-
             <div className="content-produit-jour young-serif-regular">
                 <div className="details-produit-jour">
                     <div className="informations">
-                        <div className="titre">
-                            <h3>Produit du jour</h3>
-                        </div>
-
                         <div className="contenu">
                             <h1 className="sous-titre">{ produitDuJour && produitDuJour.libelle }</h1>
+                        </div>
+                        
+                        <div className="titre">
+                            <h3>Produit du jour</h3>
                         </div>
                     </div>
 
                     <div className="quantite">
-                        <div className="prix">
-                            <h3>{ produitDuJour && produitDuJour.prix } Or</h3>
-                            <p>Quantite en stock: { produitDuJour && produitDuJour.quantiteEnStock }</p>
-                        </div>
-
-                        <div className="action">
-                            <button>Ajouter au panier</button>
+                        <div className="quantite-informations">
+                            <div className="prix">
+                                <h3>{ produitDuJour && parseFloat(produitDuJour.prix).toFixed(2) } Or</h3>
+                                <p>Quantite en stock: { produitDuJour && produitDuJour.quantiteEnStock }</p>
+                            </div>
                         </div>
                     </div>
                 </div>
