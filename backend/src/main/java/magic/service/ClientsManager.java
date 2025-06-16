@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.lang.classfile.ClassFile.Option;
 import java.util.Optional;
 @Service
-public class UserService {
+public class ClientsManager implements ClientsServiceAPI {
     @Autowired
     private ClientRepository userRepository;
     @Autowired
