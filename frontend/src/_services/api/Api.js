@@ -39,7 +39,7 @@ axiosInstance.interceptors.response.use(
   async (err) => {
     const originalConfig = err.config;
 
-    if (originalConfig.url !== "/api/users/login" && err.response) {
+    if (originalConfig.url !== "/api/clients/login" && err.response) {
       if (err.response.status === 403 && err.response.data) {
         return Promise.reject(err.response.data);
       }
