@@ -1,7 +1,8 @@
 import axios from "axios";
 import { routes } from "../../routes";
 
-const localUrl = "http://127.0.0.1:8080/api";
+const localUrl = import.meta.env.VITE_API_URL;
+print("API URL: ", localUrl);
 
 const LOGIN_PAGE = "/";
 
