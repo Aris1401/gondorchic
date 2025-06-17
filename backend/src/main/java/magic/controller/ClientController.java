@@ -1,6 +1,6 @@
 package magic.controller;
 import magic.model.Client;
-import magic.service.UserService;
+import magic.service.ClientsManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -13,7 +13,7 @@ import java.util.Optional;
 @RequestMapping("/api/clients")
 public class ClientController {
     @Autowired
-    private UserService userService;
+    private ClientsManager userService;
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody Client user) {
         Optional<Client> registeredUser = userService.registerUser(user);
@@ -25,7 +25,7 @@ public class ClientController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody Client user) {
+    public ResponseEntity<?> traiterIdentification(@RequestBody Client user) {
         return userService.traiterIdentification(user.getPseudo(), user.getMotDePasse())
                 .map(token -> ResponseEntity.ok().body(token))
                 .orElseGet(() -> ResponseEntity.status(401).body("Pseudo ou mot de passe incorrect"));
