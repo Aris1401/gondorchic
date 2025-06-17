@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.lang.classfile.ClassFile.Option;
 import java.util.Optional;
 @Service
 public class ClientsManager implements ClientsServiceAPI {
